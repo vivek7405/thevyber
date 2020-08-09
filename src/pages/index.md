@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: Let us choose the best for you!
 image: /img/bg6.jpg
 heading: We pick the best for you!
 subheading: Don't leave it to luck, leave it to us!
