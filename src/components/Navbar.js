@@ -18,7 +18,7 @@ const Navbar = class extends React.Component {
     s.id = "ze-snippet";
     s.type = 'text/javascript';
     s.async = true;
-    s.src = "https://static.zdassets.com/ekr/snippet.js?key=a65e635c-731b-494a-82fa-3221668654d2";
+    s.src = "https://static.zdassets.com/ekr/snippet.js?key=a3e33d57-d670-49b8-96b5-e31fd575c8a4";
     s.innerHTML = "document.write('This is output by document.write()!')";
     if (this.instance)
       this.instance.appendChild(s);
