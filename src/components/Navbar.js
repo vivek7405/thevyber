@@ -12,6 +12,18 @@ const Navbar = class extends React.Component {
     }
   }
 
+  componentDidMount() {
+    // Add Zendesk Script
+    const s = document.createElement('script');
+    s.id = "ze-snippet";
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = "https://static.zdassets.com/ekr/snippet.js?key=a65e635c-731b-494a-82fa-3221668654d2";
+    s.innerHTML = "document.write('This is output by document.write()!')";
+    if (this.instance)
+      this.instance.appendChild(s);
+  }
+
   toggleHamburger = () => {
     // toggle the active boolean in the state
     this.setState(
@@ -23,11 +35,11 @@ const Navbar = class extends React.Component {
         // set the class in state for the navbar accordingly
         this.state.active
           ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
+            navBarActiveClass: 'is-active',
+          })
           : this.setState({
-              navBarActiveClass: '',
-            })
+            navBarActiveClass: '',
+          })
       }
     )
   }
@@ -35,6 +47,7 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <nav
+        ref={el => (this.instance = el)}
         className="navbar is-transparent"
         role="navigation"
         aria-label="main-navigation"
@@ -42,7 +55,8 @@ const Navbar = class extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+              {/* <img src={logo} alt="Kaldi" style={{ width: '88px' }} /> */}
+              <p class="vyber">VYBER</p>
             </Link>
             {/* Hamburger menu */}
             <div
@@ -60,6 +74,9 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
+              <Link className="navbar-item" to="/">
+                Home
+              </Link>
               <Link className="navbar-item" to="/about">
                 About
               </Link>
@@ -76,7 +93,7 @@ const Navbar = class extends React.Component {
                 Form Examples
               </Link>
             </div>
-            <div className="navbar-end has-text-centered">
+            {/* <div className="navbar-end has-text-centered">
               <a
                 className="navbar-item"
                 href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
@@ -87,7 +104,7 @@ const Navbar = class extends React.Component {
                   <img src={github} alt="Github" />
                 </span>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>

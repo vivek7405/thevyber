@@ -6,18 +6,18 @@ const FeatureGrid = ({ gridItems }) => (
   <div className="columns is-multiline">
     {gridItems.map((item) => (
       <div key={item.text} className="column is-6">
-        <section className="section">
+        <section className="section" style={{ textAlign: 'center' }}>
           <div className="has-text-centered">
             <div
               style={{
-                width: '240px',
+                width: '360px',
                 display: 'inline-block',
               }}
             >
               <PreviewCompatibleImage imageInfo={item} />
             </div>
           </div>
-          <p>{item.text}</p>
+          <p style={{ textAlign: 'justify', textJustify: 'inter-word' }}>{item.text}</p>
         </section>
       </div>
     ))}
