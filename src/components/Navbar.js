@@ -13,13 +13,26 @@ const Navbar = class extends React.Component {
   }
 
   componentDidMount() {
-    // Add Zendesk Script
+    // this.addZendeskButton();
+    this.addWhatsAppButton();
+  }
+
+  addZendeskButton() {
     const s = document.createElement('script');
     s.id = "ze-snippet";
     s.type = 'text/javascript';
     s.async = true;
     s.src = "https://static.zdassets.com/ekr/snippet.js?key=a3e33d57-d670-49b8-96b5-e31fd575c8a4";
-    s.innerHTML = "document.write('This is output by document.write()!')";
+    if (this.instance)
+      this.instance.appendChild(s);
+  }
+
+  addWhatsAppButton() {
+    const s = document.createElement('script');
+    s.id = "ws-snippet";
+    s.type = 'text/javascript';
+    s.async = true;
+    s.innerHTML = "(function () {\r\n      var options = {\r\n        whatsapp: \"+917405323541\", \/\/ WhatsApp number\r\n        call_to_action: \"Message us\", \/\/ Call to action\r\n        position: \"right\", \/\/ Position may be \'right\' or \'left\'\r\n      };\r\n      var proto = document.location.protocol, host = \"getbutton.io\", url = proto + \"\/\/static.\" + host;\r\n      var s = document.createElement(\'script\'); s.type = \'text\/javascript\'; s.async = true; s.src = url + \'\/widget-send-button\/js\/init.js\';\r\n      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };\r\n      var x = document.getElementsByTagName(\'script\')[0]; x.parentNode.insertBefore(s, x);\r\n    })();";
     if (this.instance)
       this.instance.appendChild(s);
   }
