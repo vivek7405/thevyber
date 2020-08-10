@@ -13,8 +13,8 @@ const Navbar = class extends React.Component {
   }
 
   componentDidMount() {
-    // this.addZendeskButton();
-    this.addWhatsAppButton();
+    this.addZendeskButton();
+    // this.addWhatsAppButton();
   }
 
   addZendeskButton() {
@@ -27,15 +27,15 @@ const Navbar = class extends React.Component {
       this.instance.appendChild(s);
   }
 
-  addWhatsAppButton() {
-    const s = document.createElement('script');
-    s.id = "ws-snippet";
-    s.type = 'text/javascript';
-    s.async = true;
-    s.innerHTML = "(function () {\r\n      var options = {\r\n        whatsapp: \"+917405323541\", \/\/ WhatsApp number\r\n        call_to_action: \"Message us\", \/\/ Call to action\r\n        position: \"right\", \/\/ Position may be \'right\' or \'left\'\r\n      };\r\n      var proto = document.location.protocol, host = \"getbutton.io\", url = proto + \"\/\/static.\" + host;\r\n      var s = document.createElement(\'script\'); s.type = \'text\/javascript\'; s.async = true; s.src = url + \'\/widget-send-button\/js\/init.js\';\r\n      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };\r\n      var x = document.getElementsByTagName(\'script\')[0]; x.parentNode.insertBefore(s, x);\r\n    })();";
-    if (this.instance)
-      this.instance.appendChild(s);
-  }
+  // addWhatsAppButton() {
+  //   const s = document.createElement('script');
+  //   s.id = "ws-snippet";
+  //   s.type = 'text/javascript';
+  //   s.async = true;
+  //   s.innerHTML = "(function () {\r\n      var options = {\r\n        whatsapp: \"+917405323541\", \/\/ WhatsApp number\r\n        call_to_action: \"Message us\", \/\/ Call to action\r\n        position: \"right\", \/\/ Position may be \'right\' or \'left\'\r\n      };\r\n      var proto = document.location.protocol, host = \"getbutton.io\", url = proto + \"\/\/static.\" + host;\r\n      var s = document.createElement(\'script\'); s.type = \'text\/javascript\'; s.async = true; s.src = url + \'\/widget-send-button\/js\/init.js\';\r\n      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };\r\n      var x = document.getElementsByTagName(\'script\')[0]; x.parentNode.insertBefore(s, x);\r\n    })();";
+  //   if (this.instance)
+  //     this.instance.appendChild(s);
+  // }
 
   toggleHamburger = () => {
     // toggle the active boolean in the state
@@ -61,7 +61,7 @@ const Navbar = class extends React.Component {
     return (
       <nav
         ref={el => (this.instance = el)}
-        className="navbar is-transparent"
+        className="navbar is-fixed-top has-background-black has-text-white-ter"
         role="navigation"
         aria-label="main-navigation"
       >
@@ -69,10 +69,11 @@ const Navbar = class extends React.Component {
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
               {/* <img src={logo} alt="Kaldi" style={{ width: '88px' }} /> */}
-              <p class="vyber">VYBER</p>
+              <p className="vyber-logo">VYBER</p>
             </Link>
+
             {/* Hamburger menu */}
-            <div
+            {/* <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
               onClick={() => this.toggleHamburger()}
@@ -80,9 +81,9 @@ const Navbar = class extends React.Component {
               <span />
               <span />
               <span />
-            </div>
+            </div> */}
           </div>
-          <div
+          {/* <div
             id="navMenu"
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
@@ -106,7 +107,7 @@ const Navbar = class extends React.Component {
                 Form Examples
               </Link>
             </div>
-            {/* <div className="navbar-end has-text-centered">
+            <div className="navbar-end has-text-centered">
               <a
                 className="navbar-item"
                 href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
@@ -117,8 +118,8 @@ const Navbar = class extends React.Component {
                   <img src={github} alt="Github" />
                 </span>
               </a>
-            </div> */}
-          </div>
+            </div>
+          </div> */}
         </div>
       </nav>
     )

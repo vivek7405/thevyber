@@ -9,11 +9,13 @@ import { withPrefix } from 'gatsby'
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
-    <div>
+    <div className="has-background-black has-text-white-ter">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
+
+        <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
 
         <link
           rel="apple-touch-icon"
@@ -50,7 +52,7 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <Navbar />
       <div>{children}</div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

@@ -8,15 +8,24 @@ $kaldi-red-invert: #fff
 $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
 $body-color: #333
+// $black: #222
 $black: #2b2523
 
-.vyber
+html, body
+  background: $black
+  height: 100% !important
+  overflow: auto !important
+
+body  
+  @extend .has-navbar-fixed-top
+
+.vyber-logo
   font-size: 30px
   font-weight: bold
   color: #ff4400
 
 .navbar .navbar-menu
-  box-shadow: none !important
+  box-shadow: none !important  
 
 .content .taglist
   list-style: none
@@ -119,7 +128,7 @@ $menu-label-color: $white-ter
 
 // blog roll
 .blog-list-item.is-featured
-  background-color: #d6400033;
+  background-color: #3b3330;
 .blog-list-item header
   display: flex;  
   margin-bottom: 1em;  

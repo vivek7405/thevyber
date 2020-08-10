@@ -9,36 +9,29 @@ class BlogRoll extends React.Component {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
 
-    let isColClass = "is-4";
-    if (typeof window !== 'undefined') {
-      let location = window.location;
-      if (location.pathname.indexOf("/blog") >= 0) {
-        isColClass = "is-3";
-      }
-    }
-
     return (
-      <div className="columns is-multiline">
+      // <div className="columns is-multiline">
+      <div>
         {posts &&
           posts.map(({ node: post }) => (
-            <div className={`is-parent column ${isColClass}`} key={post.id}>
-              {post.frontmatter.featuredimage ? (
-                <Link to={post.fields.slug} className="featured-thumbnail">
-                  <PreviewCompatibleImage
-                    imageStyle={{ borderRadius: '5px 5px 0px 0px' }}
-                    imageInfo={{
-                      image: post.frontmatter.featuredimage,
-                      alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                    }}
-                  />
-                </Link>
-              ) : null}
+            <div className="is-parent column is-12" key={post.id}>
               <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
-                  }`}
+                // className={`blog-list-item tile is-child box notification ${
+                //   post.frontmatter.featuredpost ? 'is-featured' : ''
+                //   }`}
+                className={`blog-list-item tile is-child box notification is-featured has-text-white-ter`}
               >
                 <header>
+                  {/* {post.frontmatter.featuredimage ? (
+                    <div className="featured-thumbnail">
+                      <PreviewCompatibleImage
+                        imageInfo={{
+                          image: post.frontmatter.featuredimage,
+                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                        }}
+                      />
+                    </div>
+                  ) : null} */}
                   <p className="post-meta">
                     <Link
                       className="title has-text-primary is-size-5"
@@ -46,22 +39,14 @@ class BlogRoll extends React.Component {
                     >
                       {post.frontmatter.title}
                     </Link>
-                    <div style={{ marginTop: 3 }}>
-                      <span className="subtitle is-block" style={{ fontSize: 16 }}>
-                        <span> &bull; </span>
-                        {post.frontmatter.date}
-                        {/* <Moment fromNow ago>{post.frontmatter.date}</Moment> ago */}
-                      </span>
-                    </div>
+                    <span> &bull; </span>
+                    <span className="subtitle is-size-5 is-block">
+                      {post.frontmatter.date}
+                    </span>
                   </p>
                 </header>
                 <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
+                  {post.excerpt}                  
                 </p>
               </article>
             </div>
@@ -69,6 +54,66 @@ class BlogRoll extends React.Component {
         }
       </div>
     )
+
+    // let isColClass = "is-4";
+    // if (typeof window !== 'undefined') {
+    //   let location = window.location;
+    //   if (location.pathname.indexOf("/blog") >= 0) {
+    //     isColClass = "is-3";
+    //   }
+    // }
+    // return (
+    //   <div className="columns is-multiline">
+    //     {posts &&
+    //       posts.map(({ node: post }) => (
+    //         <div className={`is-parent column ${isColClass}`} key={post.id}>
+    //           {post.frontmatter.featuredimage ? (
+    //             <Link to={post.fields.slug} className="featured-thumbnail">
+    //               <PreviewCompatibleImage
+    //                 imageStyle={{ borderRadius: '5px 5px 0px 0px' }}
+    //                 imageInfo={{
+    //                   image: post.frontmatter.featuredimage,
+    //                   alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+    //                 }}
+    //               />
+    //             </Link>
+    //           ) : null}
+    //           <article
+    //             className={`blog-list-item tile is-child box notification ${
+    //               post.frontmatter.featuredpost ? 'is-featured' : ''
+    //               }`}
+    //           >
+    //             <header>
+    //               <p className="post-meta">
+    //                 <Link
+    //                   className="title has-text-primary is-size-5"
+    //                   to={post.fields.slug}
+    //                 >
+    //                   {post.frontmatter.title}
+    //                 </Link>
+    //                 <div style={{ marginTop: 3 }}>
+    //                   <span className="subtitle is-block" style={{ fontSize: 16 }}>
+    //                     <span> &bull; </span>
+    //                     {post.frontmatter.date}
+    //                     {/* <Moment fromNow ago>{post.frontmatter.date}</Moment> ago */}
+    //                   </span>
+    //                 </div>
+    //               </p>
+    //             </header>
+    //             <p>
+    //               {post.excerpt}
+    //               <br />
+    //               <br />
+    //               <Link className="button" to={post.fields.slug}>
+    //                 Keep Reading →
+    //               </Link>
+    //             </p>
+    //           </article>
+    //         </div>
+    //       ))
+    //     }
+    //   </div>
+    // )
   }
 }
 
@@ -90,7 +135,7 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 150)
+              excerpt(pruneLength: 50)
               id
               fields {
                 slug

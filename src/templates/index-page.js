@@ -5,6 +5,8 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import Typed from 'react-typed'
+import Footer from '../components/Footer'
 
 export const IndexPageTemplate = ({
   image,
@@ -98,12 +100,12 @@ export const IndexPageTemplate = ({
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
                       Latest stories
-                  </h3>
+                    </h3>
                     <BlogRoll />
                     <div className="column is-12 has-text-centered">
                       <Link className="btn" to="/blog">
                         Read more
-                    </Link>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -127,30 +129,92 @@ IndexPageTemplate.propTypes = {
   }),
 }
 
-const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+// const IndexPage = ({ data }) => {
+//   const { frontmatter } = data.markdownRemark
 
-  return (
-    <Layout>
-      <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-      />
-    </Layout>
-  )
-}
+//   return (
+//     <Layout>
+//       <IndexPageTemplate
+//         image={frontmatter.image}
+//         title={frontmatter.title}
+//         heading={frontmatter.heading}
+//         subheading={frontmatter.subheading}
+//         mainpitch={frontmatter.mainpitch}
+//         description={frontmatter.description}
+//         intro={frontmatter.intro}
+//       />
+//     </Layout>
+//   )
+// }
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
+// IndexPage.propTypes = {
+//   data: PropTypes.shape({
+//     markdownRemark: PropTypes.shape({
+//       frontmatter: PropTypes.object,
+//     }),
+//   }),
+// }
+
+// export default IndexPage
+
+const IndexPage = class extends React.Component {
+  getTypeWriter() {
+    return (
+      <div>
+        <label>Shall I buy </label>
+        <span>
+          <Typed
+            strings={['iphone XR or OnePlus 8?', 'Macbook Air or Macbook Pro?', 'Audi A4 or Jaguar XE?', 'Yamaha S775 or Korg PA700?']}
+            typeSpeed={130}
+            backSpeed={50}
+            loop
+          />
+        </span>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <Layout>
+        <section className="section">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-6">
+                <div style={{ fontWeight: 200, color: '#888', fontSize: '2rem' }}>
+                  Chat with us now!
+                  </div>
+
+                <div style={{ minHeight: '250px', fontSize: '2em', fontWeight: 200, fontFamily: "'Raleway', sans-serif" }}>
+                  {this.getTypeWriter()}
+                </div>
+
+                <Footer />
+              </div>
+              <div className="column is-6">
+                {/* Right Side */}
+                <BlogRoll />
+              </div>
+
+              {/* <div>
+              <div className="column is-12">
+                <h3 className="has-text-weight-semibold is-size-2">
+                  Latest stories
+                    </h3>
+                <BlogRoll />
+                <div className="column is-12 has-text-centered">
+                  <Link className="btn" to="/blog">
+                    Read more
+                  </Link>
+                </div>
+              </div>
+            </div> */}
+            </div>
+          </div>
+        </section>
+      </Layout >
+    )
+  }
 }
 
 export default IndexPage
