@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 // import Moment from 'react-moment'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 class BlogRoll extends React.Component {
   render() {
@@ -16,38 +18,16 @@ class BlogRoll extends React.Component {
           posts.map(({ node: post }) => (
             <div className="is-parent column is-12" key={post.id}>
               <article
-                // className={`blog-list-item tile is-child box notification ${
-                //   post.frontmatter.featuredpost ? 'is-featured' : ''
-                //   }`}
-                className={`blog-list-item tile is-child box notification is-featured has-text-white-ter`}
+                className={`blog-list-item tile is-child box notification is-featured`}
+                style={{ padding: '48px' }}
               >
-                <header>
-                  {/* {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      />
-                    </div>
-                  ) : null} */}
-                  <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-5"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span>
-                  </p>
-                </header>
-                <p>
-                  {post.excerpt}                  
-                </p>
+                <p style={{ letterSpacing: '3px', textTransform: 'uppercase', color: '#ffffff', fontSize: '10px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>JAVASCRIPT</p>
+                <p style={{ color: '#fff', fontSize: '24px', fontWeight: '600', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif', marginTop: '8px' }}>Dinero.js</p>
+                <p style={{ marginTop: '8px', fontSize: '14px', color: '#949495' }}>An immutable JavaScript library to create, calculate and format money.</p>
+                <div style={{ display: 'flex', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
+                  <FontAwesomeIcon icon={faStar} style={{ marginRight: '5px', fontSize: '10px' }} />
+                  <p style={{ fontSize: '12px' }}>3,771</p>
+                </div>
               </article>
             </div>
           ))

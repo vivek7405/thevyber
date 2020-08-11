@@ -160,12 +160,12 @@ IndexPageTemplate.propTypes = {
 const IndexPage = class extends React.Component {
   getTypeWriter() {
     return (
-      <div>
+      <div className="has-text-weight-bold">
         <label>Shall I buy </label>
         <span>
           <Typed
-            strings={['iphone XR or OnePlus 8?', 'Macbook Air or Macbook Pro?', 'Audi A4 or Jaguar XE?', 'Yamaha S775 or Korg PA700?']}
-            typeSpeed={130}
+            strings={['iphone XR or OnePlus 8?', 'Macbook Air or Macbook Pro?', 'Audi A4 or Jaguar XE?', 'Yamaha S775 or Korg PA700?', 'Nikon D5600 or Canon M50?']}
+            typeSpeed={150}
             backSpeed={50}
             loop
           />
@@ -181,17 +181,19 @@ const IndexPage = class extends React.Component {
           <div className="container">
             <div className="columns">
               <div className="column is-6">
-                <div style={{ fontWeight: 200, color: '#888', fontSize: '2rem' }}>
-                  Chat with us now!
+                <div style={{ position: 'sticky', top: 100 }}>
+                  <div style={{ fontWeight: 200, color: '#888', fontSize: '2rem' }}>
+                    Chat with us now!
                   </div>
 
-                <div style={{ minHeight: '250px', fontSize: '2em', fontWeight: 200, fontFamily: "'Raleway', sans-serif" }}>
-                  {this.getTypeWriter()}
-                </div>
+                  <div style={{ minHeight: '100px', fontSize: '1.5em', fontWeight: 200, fontFamily: "'Raleway', sans-serif" }}>
+                    {this.getTypeWriter()}
+                  </div>
 
-                <Footer />
+                  {/* <Footer /> */}
+                </div>
               </div>
-              <div className="column is-6">
+              <div className="column is-6 ">
                 {/* Right Side */}
                 <BlogRoll />
               </div>
