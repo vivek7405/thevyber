@@ -14,6 +14,9 @@ class BlogRoll extends React.Component {
     return (
       // <div className="columns is-multiline">
       <div>
+        <div className="is-12" style={{ textAlign: 'center', fontSize: '24px', color: '#ff4400' }}>
+          <b>Recently Launched</b>
+        </div>
         {posts &&
           posts.map(({ node: post }) => (
             <div className="is-parent column is-12" key={post.id}>
@@ -22,22 +25,23 @@ class BlogRoll extends React.Component {
                   className={`blog-list-item tile is-child box notification is-featured`}
                   style={{ padding: '48px' }}
                 >
-                  <div className="columns">
-                    <div className="column is-4">
-                      <PreviewCompatibleImage
-                        imageStyle={{ borderRadius: '4px' }}
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      />
-                    </div>
-                    <div className="column is-8">
-                      <p style={{ letterSpacing: '3px', textTransform: 'uppercase', color: '#949495', fontSize: '13px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</p>
-                      <p style={{ color: '#fff', fontSize: '20px', fontWeight: '500', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif', marginTop: '8px' }}>{post.frontmatter.title}</p>
+                  <p style={{ letterSpacing: '3px', textTransform: 'uppercase', color: '#949495', fontSize: '13px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</p>
+                  <div className="columns" style={{ marginTop: '3px' }}>
+                    {post.frontmatter.featuredimage &&
+                      <div className="column is-3">
+                        <PreviewCompatibleImage
+                          imageStyle={{ borderRadius: '4px' }}
+                          imageInfo={{
+                            image: post.frontmatter.featuredimage,
+                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                          }}
+                        />
+                      </div>}
+                    <div className="column is-9" style={{ display: 'flex', alignItems: 'center' }}>
+                      <p style={{ color: '#fff', textAlign: 'justify', fontSize: '20px', fontWeight: '500', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p>
                     </div>
                   </div>
-                  <p style={{ marginTop: '8px', fontSize: '17px', color: '#949495' }}>{post.excerpt}</p>
+                  <p style={{ marginTop: '8px', textAlign: 'justify', fontSize: '17px', color: '#949495' }}>{post.frontmatter.description}</p>
                   <div style={{ display: 'flex', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
                     <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px', fontSize: '10px' }} />
                     <p style={{ fontSize: '12px' }}>3,771</p>
@@ -130,13 +134,14 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 75)              
+              excerpt(pruneLength: 120)              
               id
               fields {
                 slug
               }
               frontmatter {
                 title
+                description
                 tags
                 templateKey
                 date(formatString: "MMMM DD, YYYY")

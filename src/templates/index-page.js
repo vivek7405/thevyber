@@ -190,11 +190,17 @@ const IndexPage = class extends React.Component {
                     {this.getTypeWriter()}
                   </div>
 
-                  <div style={{ color: '#949495', textAlign: 'justify', lineHeight: 1.5, textJustify: 'inter-word', fontWeight: 100, fontSize: '20px', maxWidth: '90%', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>
+                  {/* <div style={{ color: '#949495', textAlign: 'justify', lineHeight: 1.5, textJustify: 'inter-word', fontWeight: 100, fontSize: '20px', maxWidth: '90%', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>
                     With several product alternatives out there in the market, it's really difficult to buy the right one that best suits your needs. Click the Chat button below and get help from&nbsp;
                     <a href="https://vuejs.org/" rel="noopener" style={{ color: '#d95525' }}>our experts</a>&nbsp;
                     in choosing the best.
-                  </div>
+                  </div> */}
+
+                  <p style={{ marginTop: '8px', fontSize: '20px', color: '#949495', width: '90%', textAlign: 'justify' }}>
+                    With several product alternatives out there in the market, it's really difficult to buy the right one that best suits your needs. Click the Chat button below and get help from&nbsp;
+                    <Link to="/" style={{ color: '#d95525' }}>our experts</Link>&nbsp;
+                    in choosing the best.
+                  </p>
 
                   {/* <Footer /> */}
                 </div>
