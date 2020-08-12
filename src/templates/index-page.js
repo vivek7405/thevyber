@@ -164,7 +164,7 @@ const IndexPage = class extends React.Component {
         <label>Shall I buy </label>
         <span>
           <Typed
-            strings={['iphone XR or OnePlus 8?', 'Macbook Air or Macbook Pro?', 'Audi A4 or Jaguar XE?', 'Yamaha S775 or Korg PA700?', 'Nikon D5600 or Canon M50?']}
+            strings={['iphone XR or OnePlus 8?', 'Macbook Air or Macbook Pro?', 'Audi A4 or Jaguar XE?', 'Yamaha S775 or Korg PA700?', 'Nikon D5600 or Canon 200D?']}
             typeSpeed={150}
             backSpeed={50}
             loop
@@ -188,6 +188,12 @@ const IndexPage = class extends React.Component {
 
                   <div style={{ minHeight: '100px', fontSize: '1.5em', fontWeight: 200, fontFamily: "'Raleway', sans-serif" }}>
                     {this.getTypeWriter()}
+                  </div>
+
+                  <div style={{ color: '#949495', textAlign: 'justify', lineHeight: 1.5, textJustify: 'inter-word', fontWeight: 100, fontSize: '20px', maxWidth: '90%', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>
+                    With several product alternatives out there in the market, it's really difficult to buy the right one that best suits your needs. Click the Chat button below and get help from&nbsp;
+                    <a href="https://vuejs.org/" rel="noopener" style={{ color: '#d95525' }}>our experts</a>&nbsp;
+                    in choosing the best.
                   </div>
 
                   {/* <Footer /> */}

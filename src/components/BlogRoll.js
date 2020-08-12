@@ -4,7 +4,7 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 // import Moment from 'react-moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faStar } from '@fortawesome/free-solid-svg-icons'
 
 class BlogRoll extends React.Component {
   render() {
@@ -17,18 +17,33 @@ class BlogRoll extends React.Component {
         {posts &&
           posts.map(({ node: post }) => (
             <div className="is-parent column is-12" key={post.id}>
-              <article
-                className={`blog-list-item tile is-child box notification is-featured`}
-                style={{ padding: '48px' }}
-              >
-                <p style={{ letterSpacing: '3px', textTransform: 'uppercase', color: '#ffffff', fontSize: '10px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>JAVASCRIPT</p>
-                <p style={{ color: '#fff', fontSize: '24px', fontWeight: '600', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif', marginTop: '8px' }}>Dinero.js</p>
-                <p style={{ marginTop: '8px', fontSize: '14px', color: '#949495' }}>An immutable JavaScript library to create, calculate and format money.</p>
-                <div style={{ display: 'flex', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
-                  <FontAwesomeIcon icon={faStar} style={{ marginRight: '5px', fontSize: '10px' }} />
-                  <p style={{ fontSize: '12px' }}>3,771</p>
-                </div>
-              </article>
+              <Link to={post.fields.slug}>
+                <article
+                  className={`blog-list-item tile is-child box notification is-featured`}
+                  style={{ padding: '48px' }}
+                >
+                  <div className="columns">
+                    <div className="column is-4">
+                      <PreviewCompatibleImage
+                        imageStyle={{ borderRadius: '4px' }}
+                        imageInfo={{
+                          image: post.frontmatter.featuredimage,
+                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                        }}
+                      />
+                    </div>
+                    <div className="column is-8">
+                      <p style={{ letterSpacing: '3px', textTransform: 'uppercase', color: '#949495', fontSize: '13px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</p>
+                      <p style={{ color: '#fff', fontSize: '20px', fontWeight: '500', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif', marginTop: '8px' }}>{post.frontmatter.title}</p>
+                    </div>
+                  </div>
+                  <p style={{ marginTop: '8px', fontSize: '17px', color: '#949495' }}>{post.excerpt}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
+                    <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px', fontSize: '10px' }} />
+                    <p style={{ fontSize: '12px' }}>3,771</p>
+                  </div>
+                </article>
+              </Link>
             </div>
           ))
         }
@@ -115,13 +130,14 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 50)
+              excerpt(pruneLength: 75)              
               id
               fields {
                 slug
               }
               frontmatter {
                 title
+                tags
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
