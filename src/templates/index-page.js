@@ -196,9 +196,9 @@ const IndexPage = class extends React.Component {
                     in choosing the best.
                   </div> */}
 
-                  <p style={{ marginTop: '8px', fontSize: '20px', color: '#949495', width: '90%', textAlign: 'justify' }}>
+                  <p style={{ marginTop: '8px', fontSize: '20px', color: '#b0b0b0', width: '90%', textAlign: 'justify' }}>
                     With several product alternatives out there in the market, it's really difficult to buy the right one that best suits your needs. Click the Chat button below and get help from&nbsp;
-                    <Link to="/" style={{ color: '#d95525' }}>our experts</Link>&nbsp;
+                    <Link to="/" style={{ color: '#e85a27' }}>our experts</Link>&nbsp;
                     in choosing the best.
                   </p>
 
