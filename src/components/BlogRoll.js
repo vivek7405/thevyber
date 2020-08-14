@@ -4,7 +4,7 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 // import Moment from 'react-moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faStar, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 class BlogRoll extends React.Component {
   render() {
@@ -20,34 +20,38 @@ class BlogRoll extends React.Component {
         {posts &&
           posts.map(({ node: post }) => (
             <div className="is-parent column is-12" key={post.id}>
-              <Link to={post.fields.slug}>
-                <article
-                  className={`blog-list-item tile is-child box notification is-featured`}
-                  style={{ padding: '48px' }}
-                >
+              <article
+                className={`blog-list-item tile is-child box notification is-featured`}
+                style={{ padding: '48px' }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <p style={{ letterSpacing: '3px', textTransform: 'uppercase', color: '#949495', fontSize: '13px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</p>
-                  <div className="columns" style={{ marginTop: '3px' }}>
-                    {post.frontmatter.featuredimage &&
-                      <div className="column is-3">
-                        <PreviewCompatibleImage
-                          imageStyle={{ borderRadius: '4px' }}
-                          imageInfo={{
-                            image: post.frontmatter.featuredimage,
-                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                          }}
-                        />
-                      </div>}
-                    <div className="column is-9" style={{ display: 'flex', alignItems: 'center' }}>
-                      <p style={{ color: '#fff', textAlign: 'justify', fontSize: '20px', fontWeight: '500', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p>
-                    </div>
+                  {post.frontmatter.externalurl && post.frontmatter.externalurl != '/' &&
+                    <Link to={post.frontmatter.externalurl} target="_blank">
+                      <FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
+                    </Link>}
+                </div>
+                <div className="columns" style={{ marginTop: '3px' }}>
+                  {post.frontmatter.featuredimage &&
+                    <div className="column is-3">
+                      <Link><PreviewCompatibleImage
+                        imageStyle={{ borderRadius: '4px' }}
+                        imageInfo={{
+                          image: post.frontmatter.featuredimage,
+                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                        }}
+                      /></Link>
+                    </div>}
+                  <div className="column is-9" style={{ display: 'flex', alignItems: 'center' }}>
+                    <Link to={post.fields.slug}><p style={{ color: '#fff', textAlign: 'justify', fontSize: '20px', fontWeight: '500', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p></Link>
                   </div>
-                  <p style={{ marginTop: '8px', textAlign: 'justify', fontSize: '17px', color: '#949495' }}>{post.frontmatter.description}</p>
-                  <div style={{ display: 'flex', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
-                    <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px', fontSize: '10px' }} />
-                    <p style={{ fontSize: '12px' }}>3,771</p>
-                  </div>
-                </article>
-              </Link>
+                </div>
+                <p style={{ marginTop: '8px', textAlign: 'justify', fontSize: '17px', color: '#949495' }}>{post.frontmatter.description}</p>
+                <div style={{ display: 'flex', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
+                  <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px', fontSize: '10px' }} />
+                  <p style={{ fontSize: '12px' }}>3,771</p>
+                </div>
+              </article>
             </div>
           ))
         }
@@ -142,6 +146,9 @@ export default () => (
               frontmatter {
                 title
                 description
+                externalurl
+                facebookurl
+                youtubeurl                
                 tags
                 templateKey
                 date(formatString: "MMMM DD, YYYY")

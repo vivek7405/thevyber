@@ -24,10 +24,10 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
-      - {label: "External URL", name: "externalurl", widget: "string"}
-      - {label: "Facebook URL", name: "facebookurl", widget: "string"}
-      - {label: "Youtube URL", name: "youtubeurl", widget: "string"}
-      - {label: "Amazon URL", name: "amazonurl", widget: "string"}
+      - {label: "External URL", optional: true, name: "externalurl", widget: "string"}
+      - {label: "Facebook URL", optional: true, name: "facebookurl", widget: "string"}
+      - {label: "Youtube URL", optional: true, name: "youtubeurl", widget: "string"}
+      - {label: "Amazon URL", optional: true, name: "amazonurl", widget: "string"}
       - {label: "Flipkart URL", name: "flipkarturl", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}

@@ -9,8 +9,6 @@ featuredimage: /img/sony_zv-1.jpg
 externalurl: https://www.sony.co.in/electronics/cyber-shot-compact-cameras/zv-1
 facebookurl: https://www.facebook.com/SonyIndia/videos/the-all-new-sony-zv-1-vlog-camera/2675824929403354/
 youtubeurl: https://www.youtube.com/watch?v=tkweChULkrI
-amazonurl: /
-flipkarturl: /
 tags:
   - Camera
 ---
