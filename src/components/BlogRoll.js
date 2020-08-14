@@ -148,7 +148,9 @@ export default () => (
                 description
                 externalurl
                 facebookurl
-                youtubeurl                
+                youtubeurl
+                amazonurl
+                flipkarturl
                 tags
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
