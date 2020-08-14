@@ -114,7 +114,7 @@ const Navbar = class extends React.Component {
               <div className="menu-list" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <a
                   className="navbar-item"
-                  href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+                  href="https://www.facebook.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -122,7 +122,7 @@ const Navbar = class extends React.Component {
                 </a>
                 <a
                   className="navbar-item"
-                  href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+                  href="https://www.instagram.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -130,7 +130,7 @@ const Navbar = class extends React.Component {
                 </a>
                 <a
                   className="navbar-item"
-                  href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+                  href="https://www.youtube.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

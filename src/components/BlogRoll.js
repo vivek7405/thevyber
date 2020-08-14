@@ -5,6 +5,7 @@ import PreviewCompatibleImage from './PreviewCompatibleImage'
 // import Moment from 'react-moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { faFacebook, faYoutube, faAmazon } from '@fortawesome/free-brands-svg-icons'
 
 class BlogRoll extends React.Component {
   render() {
@@ -24,9 +25,9 @@ class BlogRoll extends React.Component {
                 className={`blog-list-item tile is-child box notification is-featured`}
                 style={{ padding: '48px' }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <p style={{ letterSpacing: '3px', textTransform: 'uppercase', color: '#949495', fontSize: '13px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</p>
-                  {post.frontmatter.externalurl && post.frontmatter.externalurl !== "" &&
+                <div style={{ display: 'flex', justifyContent: 'space-between', color: '#949495' }}>
+                  <p style={{ letterSpacing: '3px', textTransform: 'uppercase', fontSize: '13px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</p>
+                  {post.frontmatter.externalurl &&
                     <Link to={post.frontmatter.externalurl} target="_blank">
                       <FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
                     </Link>}
@@ -34,22 +35,34 @@ class BlogRoll extends React.Component {
                 <div className="columns" style={{ marginTop: '3px' }}>
                   {post.frontmatter.featuredimage &&
                     <div className="column is-3">
-                      <Link><PreviewCompatibleImage
-                        imageStyle={{ borderRadius: '4px' }}
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      /></Link>
+                      <Link to={post.fields.slug}>
+                        <PreviewCompatibleImage
+                          imageStyle={{ borderRadius: '4px' }}
+                          imageInfo={{
+                            image: post.frontmatter.featuredimage,
+                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                          }}
+                        />
+                      </Link>
                     </div>}
                   <div className="column is-9" style={{ display: 'flex', alignItems: 'center' }}>
-                    <Link to={post.fields.slug}><p style={{ color: '#fff', textAlign: 'justify', fontSize: '20px', fontWeight: '500', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p></Link>
+                    <Link style={{ textDecoration: 'none' }} to={post.fields.slug}><p style={{ color: '#fff', textAlign: 'justify', fontSize: '20px', fontWeight: '500', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p></Link>
                   </div>
                 </div>
                 <p style={{ marginTop: '8px', textAlign: 'justify', fontSize: '17px', color: '#949495' }}>{post.frontmatter.description}</p>
-                <div style={{ display: 'flex', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
-                  <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px', fontSize: '10px' }} />
-                  <p style={{ fontSize: '12px' }}>3,771</p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px', fontSize: '10px' }} />
+                    <p style={{ fontSize: '12px' }}>3,771</p>
+                  </div>
+                  <div>
+                    {post.frontmatter.facebookurl && <Link to={post.frontmatter.facebookurl} target="_blank">
+                      <FontAwesomeIcon icon={faFacebook} />
+                    </Link>}
+                    {post.frontmatter.youtubeurl && <Link style={{ paddingLeft: '10px' }} to={post.frontmatter.youtubeurl} target="_blank">
+                      <FontAwesomeIcon icon={faYoutube} />
+                    </Link>}
+                  </div>
                 </div>
               </article>
             </div>
@@ -148,9 +161,7 @@ export default () => (
                 description
                 externalurl
                 facebookurl
-                youtubeurl
-                amazonurl
-                flipkarturl
+                youtubeurl                
                 tags
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
