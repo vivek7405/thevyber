@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import VlogRoll from '../components/VlogRoll'
 import Typed from 'react-typed'
 import Footer from '../components/Footer'
 
@@ -208,6 +209,8 @@ const IndexPage = class extends React.Component {
               <div className="column is-6 ">
                 {/* Right Side */}
                 <BlogRoll />
+                <div style={{ marginTop: '50px' }}></div>
+                <VlogRoll />                
               </div>
 
               {/* <div>
