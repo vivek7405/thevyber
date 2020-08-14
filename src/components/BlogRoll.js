@@ -4,7 +4,7 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 // import Moment from 'react-moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faStar, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 class BlogRoll extends React.Component {
   render() {
@@ -26,7 +26,7 @@ class BlogRoll extends React.Component {
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <p style={{ letterSpacing: '3px', textTransform: 'uppercase', color: '#949495', fontSize: '13px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</p>
-                  {post.frontmatter.externalurl && post.frontmatter.externalurl != '/' &&
+                  {post.frontmatter.externalurl && post.frontmatter.externalurl !== "" &&
                     <Link to={post.frontmatter.externalurl} target="_blank">
                       <FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
                     </Link>}
