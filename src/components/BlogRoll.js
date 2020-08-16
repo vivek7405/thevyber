@@ -18,56 +18,79 @@ class BlogRoll extends React.Component {
         <div className="is-12" style={{ textAlign: 'center', fontSize: '24px', color: '#ff4400' }}>
           <b>Recently Launched</b>
         </div>
-        {posts &&
-          posts.map(({ node: post }) => (
-            <div className="is-parent column is-12" key={post.id}>
-              <article
-                className={`blog-list-item tile is-child box notification is-featured`}
-                style={{ padding: '48px' }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', color: '#949495' }}>
-                  <p style={{ letterSpacing: '3px', textTransform: 'uppercase', fontSize: '13px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</p>
-                  {post.frontmatter.externalurl &&
-                    <Link to={post.frontmatter.externalurl} target="_blank">
-                      <FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
-                    </Link>}
-                </div>
-                <div className="columns" style={{ marginTop: '3px' }}>
-                  {post.frontmatter.featuredimage &&
-                    <div className="column is-3">
-                      <Link to={post.fields.slug}>
-                        <PreviewCompatibleImage
-                          imageStyle={{ borderRadius: '4px' }}
-                          imageInfo={{
-                            image: post.frontmatter.featuredimage,
-                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                          }}
-                        />
-                      </Link>
-                    </div>}
-                  <div className="column is-9" style={{ display: 'flex', alignItems: 'center' }}>
-                    <Link style={{ textDecoration: 'none' }} to={post.fields.slug}><p style={{ color: '#fff', textAlign: 'justify', fontSize: '20px', fontWeight: '500', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p></Link>
+        <div className="columns is-multiline" style={{ paddingTop: '0.75rem' }}>
+          {posts &&
+            posts.map(({ node: post }) => (
+              <div className="is-parent column is-6" key={post.id}>
+                <article
+                  className={`blog-list-item tile is-child box is-featured`}
+                >
+                  <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'space-between', color: '#949495' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '11px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</div>
+                    {post.frontmatter.externalurl &&
+                      <Link to={post.frontmatter.externalurl} target="_blank">
+                        <FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
+                      </Link>}
                   </div>
-                </div>
-                <p style={{ marginTop: '8px', textAlign: 'justify', fontSize: '17px', color: '#949495' }}>{post.frontmatter.description}</p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px', fontSize: '10px' }} />
-                    <p style={{ fontSize: '12px' }}>3,771</p>
-                  </div>
-                  <div>
-                    {post.frontmatter.facebookurl && <Link to={post.frontmatter.facebookurl} target="_blank">
-                      <FontAwesomeIcon icon={faFacebook} />
+                  {/* <div className="columns" style={{ marginTop: '3px' }}>
+                    {post.frontmatter.featuredimage &&
+                      <div className="column is-4">
+                        <Link to={post.fields.slug}>
+                          <PreviewCompatibleImage
+                            imageStyle={{ borderRadius: '4px' }}
+                            imageInfo={{
+                              image: post.frontmatter.featuredimage,
+                              alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                            }}
+                          />
+                        </Link>
+                      </div>}
+                    <div className="column is-8" style={{ display: 'flex', alignItems: 'center' }}>
+                      <Link style={{ textDecoration: 'none' }} to={post.fields.slug}><p style={{ color: '#fff', textAlign: 'justify', fontSize: '13px', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p></Link>
+                    </div>
+                  </div> */}
+                  <div style={{ marginTop: '8px' }}>
+                    {!post.frontmatter.isvideo && <Link to={post.fields.slug}>
+                      <PreviewCompatibleImage
+                        imageStyle={{ borderRadius: '5px' }}
+                        imageInfo={{
+                          image: post.frontmatter.featuredimage,
+                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                        }}
+                      />
                     </Link>}
-                    {post.frontmatter.youtubeurl && <Link style={{ paddingLeft: '10px' }} to={post.frontmatter.youtubeurl} target="_blank">
-                      <FontAwesomeIcon icon={faYoutube} />
-                    </Link>}
+                    {post.frontmatter.isvideo &&
+                      <div>
+                        <iframe style={{ borderRadius: '5px' }} width="100%"
+                          frameBorder="none"
+                          src={"https://www.youtube.com/embed/" + post.frontmatter.videoid + "?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"}
+                          allowfullscreen>
+                        </iframe>
+                      </div>}
                   </div>
-                </div>
-              </article>
-            </div>
-          ))
-        }
+                  <div style={{ marginTop: '10px' }}>
+                    <Link style={{ textDecoration: 'none' }} to={post.fields.slug}><p style={{ color: '#fff', textAlign: 'justify', fontSize: '13px', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p></Link>
+                  </div>
+                  <p style={{ marginTop: '8px', textAlign: 'justify', fontSize: '13px', color: '#949495' }}>{post.frontmatter.description}</p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px', fontSize: '10px' }} />
+                      <p style={{ fontSize: '12px' }}>3,771</p>
+                    </div>
+                    <div>
+                      {post.frontmatter.facebookurl && <Link to={post.frontmatter.facebookurl} target="_blank">
+                        <FontAwesomeIcon icon={faFacebook} />
+                      </Link>}
+                      {post.frontmatter.youtubeurl && <Link style={{ paddingLeft: '10px' }} to={post.frontmatter.youtubeurl} target="_blank">
+                        <FontAwesomeIcon icon={faYoutube} />
+                      </Link>}
+                    </div>
+                  </div>
+                </article>
+              </div>
+            ))
+          }
+        </div>
       </div>
     )
 
@@ -166,6 +189,7 @@ export default () => (
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
+                isvideo
                 featuredimage {
                   childImageSharp {
                     fluid(maxWidth: 120, quality: 100) {

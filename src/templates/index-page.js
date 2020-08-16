@@ -5,7 +5,6 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
-import VlogRoll from '../components/VlogRoll'
 import Typed from 'react-typed'
 import Footer from '../components/Footer'
 
@@ -197,7 +196,7 @@ const IndexPage = class extends React.Component {
                     in choosing the best.
                   </div> */}
 
-                  <p style={{ marginTop: '8px', fontSize: '20px', color: '#b0b0b0', width: '90%', textAlign: 'justify' }}>
+                  <p style={{ marginTop: '8px', fontSize: '17px', color: '#b0b0b0', textAlign: 'justify' }}>
                     With several product alternatives out there in the market, it's really difficult to buy the right one that best suits your needs. Click the Chat button below and get help from&nbsp;
                     <Link to="/" style={{ color: '#e85a27' }}>our experts</Link>&nbsp;
                     in choosing the best.
@@ -210,7 +209,7 @@ const IndexPage = class extends React.Component {
                 {/* Right Side */}
                 <BlogRoll />
                 <div style={{ marginTop: '50px' }}></div>
-                <VlogRoll />                
+                {/* <VlogRoll /> */}
               </div>
 
               {/* <div>
