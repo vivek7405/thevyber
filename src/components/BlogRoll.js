@@ -61,9 +61,15 @@ class BlogRoll extends React.Component {
                     </Link>}
                     {post.frontmatter.isvideo &&
                       <div>
-                        <iframe style={{ borderRadius: '5px' }} width="100%"
+                        {/* <iframe style={{ borderRadius: '5px' }} width="100%"
                           frameBorder="none"
-                          src={"https://www.youtube.com/embed/" + post.frontmatter.videoid + "?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"}
+                          src={"https://www.youtube.com/embed/" + post.frontmatter.youtubevideoid + "?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"}
+                          allowfullscreen>
+                        </iframe> */}
+                        <iframe style={{ borderRadius: '5px' }} width="100%"
+                          src={"https://www.youtube.com/embed/" + post.frontmatter.youtubevideoid}
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                           allowfullscreen>
                         </iframe>
                       </div>}
@@ -190,6 +196,7 @@ export default () => (
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
                 isvideo
+                youtubevideoid
                 featuredimage {
                   childImageSharp {
                     fluid(maxWidth: 120, quality: 100) {
