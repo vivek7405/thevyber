@@ -7,6 +7,10 @@ import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 import Typed from 'react-typed'
 import Footer from '../components/Footer'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import Testimonials from '../components/Testimonials'
 
 export const IndexPageTemplate = ({
   image,
@@ -158,6 +162,11 @@ IndexPageTemplate.propTypes = {
 // export default IndexPage
 
 const IndexPage = class extends React.Component {
+  constructor(props) {
+    super(props);
+    // alert(JSON.stringify(props));
+  }
+
   getTypeWriter() {
     return (
       <div className="has-text-weight-bold">
@@ -172,6 +181,70 @@ const IndexPage = class extends React.Component {
         </span>
       </div>
     )
+  }
+
+  getTestimonials() {
+    const testimonials = this.props.data.markdownRemark.frontmatter.testimonials;
+
+
+    var settings = {
+      dots: false,
+      autoplay: true,
+      infinite: true,
+      arrows: false,
+      autoplaySpeed: 10000,
+      speed: 2000,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+
+    let testimonial =
+      <div className="cd-testimonials-wrapper cd-container">
+        <Slider {...settings}>
+          {testimonials?.map((testimonial) => (
+            <ul className="cd-testimonials">
+              <li>
+                <p>{testimonial.quote}</p>
+                <div className="cd-author">
+                  <ul className="cd-author-info">
+                    <li>- {testimonial.author}</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          ))}
+        </Slider>
+
+        {/* <Testimonials testimonials={testimonials} /> */}
+      </div>
+
+    // let testimonial =
+    //   <div className="cd-testimonials-wrapper cd-container">
+    //     <ul className="cd-testimonials">
+    //       <li>
+    //         <p>Vyber did a thorough research in helping me buy the best portable camera with picture quality equivallent to DSLRs.</p>
+    //         <div className="cd-author">
+    //           <ul className="cd-author-info">
+    //             <li>Hemali Patel</li>
+    //             <li>Dental Surgeon</li>
+    //           </ul>
+    //         </div>
+    //       </li>
+    //     </ul>
+    //     <ul className="cd-testimonials">
+    //       <li>
+    //         <p>Vyber was very quick in letting me know which smartwatch to buy as per my needs! I think it was the best purchase I made.</p>
+    //         <div className="cd-author">
+    //           <ul className="cd-author-info">
+    //             <li>Dipali Ladani</li>
+    //             <li>Physiotherapist, Anatomist</li>
+    //           </ul>
+    //         </div>
+    //       </li>
+    //     </ul>
+    //   </div>;
+
+    return testimonial;
   }
 
   render() {
@@ -196,11 +269,13 @@ const IndexPage = class extends React.Component {
                     in choosing the best.
                   </div> */}
 
-                  <p style={{ marginTop: '8px', fontSize: '17px', color: '#b0b0b0', textAlign: 'justify' }}>
+                  {/* <p style={{ marginTop: '8px', fontSize: '17px', color: '#b0b0b0', textAlign: 'justify' }}>
                     With several product alternatives out there in the market, it's really difficult to buy the right one that best suits your needs. Click the Chat button below and get help from&nbsp;
                     <Link to="/" style={{ color: '#e85a27' }}>our experts</Link>&nbsp;
                     in choosing the best.
-                  </p>
+                  </p> */}
+
+                  {this.getTestimonials()}
 
                   {/* <Footer /> */}
                 </div>
@@ -239,6 +314,10 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
+        testimonials {
+          author
+          quote
+        }
         title
         image {
           childImageSharp {
@@ -270,5 +349,5 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
+  }  
 `

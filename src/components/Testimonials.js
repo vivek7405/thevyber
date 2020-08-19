@@ -4,7 +4,7 @@ import { v4 } from 'uuid'
 
 const Testimonials = ({ testimonials }) => (
   <div>
-    {testimonials.map((testimonial) => (
+    {/* {testimonials.map((testimonial) => (
       <article key={v4()} className="message">
         <div className="message-body">
           {testimonial.quote}
@@ -12,6 +12,18 @@ const Testimonials = ({ testimonials }) => (
           <cite> – {testimonial.author}</cite>
         </div>
       </article>
+    ))} */}
+    {testimonials?.map((testimonial) => (
+      <ul className="cd-testimonials">
+        <li>
+          <p>{testimonial.quote}</p>
+          <div className="cd-author">
+            <ul className="cd-author-info">
+              <li>- {testimonial.author}</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
     ))}
   </div>
 )

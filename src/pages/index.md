@@ -1,5 +1,12 @@
 ---
 templateKey: index-page
+testimonials:
+  - author: Hemali Bhalodia
+    quote: >-
+      Vyber did a thorough research in helping me buy the best portable camera with picture quality equivallent to DSLRs.
+  - author: Dipali Ladani
+    quote: >-
+      Vyber was very quick in letting me know which smartwatch to buy as per my needs! I think it was the best purchase I made.
 title: Let us choose the best for you!
 image: /img/bg6.jpg
 heading: We pick the best for you!
