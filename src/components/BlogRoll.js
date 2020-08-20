@@ -5,7 +5,7 @@ import PreviewCompatibleImage from './PreviewCompatibleImage'
 // import Moment from 'react-moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
-import { faFacebook, faYoutube, faAmazon } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 class BlogRoll extends React.Component {
   render() {
@@ -28,9 +28,9 @@ class BlogRoll extends React.Component {
                   <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'space-between', color: '#949495' }}>
                     <div style={{ display: 'flex', alignItems: 'center', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '11px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</div>
                     {post.frontmatter.externalurl &&
-                      <Link to={post.frontmatter.externalurl} target="_blank">
+                      <a href={post.frontmatter.externalurl} target="_blank" rel="noreferrer">
                         <FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
-                      </Link>}
+                      </a>}
                   </div>
                   {/* <div className="columns" style={{ marginTop: '3px' }}>
                     {post.frontmatter.featuredimage &&
@@ -66,11 +66,11 @@ class BlogRoll extends React.Component {
                           src={"https://www.youtube.com/embed/" + post.frontmatter.youtubevideoid + "?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"}
                           allowfullscreen>
                         </iframe> */}
-                        <iframe style={{ borderRadius: '5px' }} width="100%"
+                        <iframe title={post.frontmatter.youtubevideoid} style={{ borderRadius: '5px' }} width="100%"
                           src={"https://www.youtube.com/embed/" + post.frontmatter.youtubevideoid}
-                          frameborder="0"
+                          frameBorder="0"
                           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                          allowfullscreen>
+                          allowFullScreen>
                         </iframe>
                       </div>}
                   </div>
@@ -84,12 +84,12 @@ class BlogRoll extends React.Component {
                       <p style={{ fontSize: '12px' }}>3,771</p>
                     </div>
                     <div>
-                      {post.frontmatter.facebookurl && <Link to={post.frontmatter.facebookurl} target="_blank">
+                      {post.frontmatter.facebookurl && <a href={post.frontmatter.facebookurl} target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faFacebook} />
-                      </Link>}
-                      {post.frontmatter.youtubeurl && <Link style={{ paddingLeft: '10px' }} to={post.frontmatter.youtubeurl} target="_blank">
+                      </a>}
+                      {post.frontmatter.youtubeurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.youtubeurl} target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faYoutube} />
-                      </Link>}
+                      </a>}
                     </div>
                   </div>
                 </article>

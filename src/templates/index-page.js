@@ -6,8 +6,8 @@ import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 import Typed from 'react-typed'
-import Footer from '../components/Footer'
-import Slider from 'react-slick'
+// import Footer from '../components/Footer'
+// import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Testimonials from '../components/Testimonials'
@@ -162,16 +162,11 @@ IndexPageTemplate.propTypes = {
 // export default IndexPage
 
 const IndexPage = class extends React.Component {
-  constructor(props) {
-    super(props);
-    // alert(JSON.stringify(props));
-  }
-
   getTypeWriter() {
     return (
       <div className="has-text-weight-bold">
-        <label>Shall I buy </label>
-        <span>
+        <label htmlFor="questions">Shall I buy </label>
+        <span id="questions">
           <Typed
             strings={['iphone XR or OnePlus 8?', 'Macbook Air or Macbook Pro?', 'Audi A4 or Jaguar XE?', 'Yamaha S775 or Korg PA700?', 'Nikon D5600 or Canon 200D?']}
             typeSpeed={150}
@@ -184,67 +179,7 @@ const IndexPage = class extends React.Component {
   }
 
   getTestimonials() {
-    const testimonials = this.props.data.markdownRemark.frontmatter.testimonials;
-
-
-    var settings = {
-      dots: false,
-      autoplay: true,
-      infinite: true,
-      arrows: false,
-      autoplaySpeed: 10000,
-      speed: 2000,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
-
-    let testimonial =
-      <div className="cd-testimonials-wrapper cd-container">
-        <Slider {...settings}>
-          {testimonials?.map((testimonial) => (
-            <ul className="cd-testimonials">
-              <li>
-                <p>{testimonial.quote}</p>
-                <div className="cd-author">
-                  <ul className="cd-author-info">
-                    <li>- {testimonial.author}</li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          ))}
-        </Slider>
-
-        {/* <Testimonials testimonials={testimonials} /> */}
-      </div>
-
-    // let testimonial =
-    //   <div className="cd-testimonials-wrapper cd-container">
-    //     <ul className="cd-testimonials">
-    //       <li>
-    //         <p>Vyber did a thorough research in helping me buy the best portable camera with picture quality equivallent to DSLRs.</p>
-    //         <div className="cd-author">
-    //           <ul className="cd-author-info">
-    //             <li>Hemali Patel</li>
-    //             <li>Dental Surgeon</li>
-    //           </ul>
-    //         </div>
-    //       </li>
-    //     </ul>
-    //     <ul className="cd-testimonials">
-    //       <li>
-    //         <p>Vyber was very quick in letting me know which smartwatch to buy as per my needs! I think it was the best purchase I made.</p>
-    //         <div className="cd-author">
-    //           <ul className="cd-author-info">
-    //             <li>Dipali Ladani</li>
-    //             <li>Physiotherapist, Anatomist</li>
-    //           </ul>
-    //         </div>
-    //       </li>
-    //     </ul>
-    //   </div>;
-
-    return testimonial;
+    return <Testimonials testimonials={this.props.data.markdownRemark.frontmatter.testimonials} />;
   }
 
   render() {

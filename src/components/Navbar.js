@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+// import github from '../img/github-icon.svg'
+// import logo from '../img/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
@@ -74,15 +74,15 @@ const Navbar = class extends React.Component {
             </Link>
 
             {/* Hamburger menu */}
-            <div
+            <a href="#0"
               className={`navbar-burger burger ${this.state.navBarActiveClass} has-background-black has-text-white-ter`}
               data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
+              onClick={this.toggleHamburger}
             >
               <span />
               <span />
               <span />
-            </div>
+            </a>
           </div>
           <div
             id="navMenu"
