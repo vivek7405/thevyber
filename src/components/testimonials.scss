@@ -40,7 +40,7 @@ Primary style
     margin: 2em auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding: 20px 40px 70px;
+    padding: 25px 15px;
     z-index: 1;
 }
 .cd-testimonials-wrapper::after {
@@ -65,7 +65,7 @@ Primary style
 @media only screen and (min-width: 768px) {
     .cd-testimonials-wrapper {
         // margin: 4em auto;
-        padding: 50px 10px;
+        padding: 20px 10px;
     }
 }
 @media only screen and (min-width: 1170px) {
@@ -102,14 +102,14 @@ Primary style
 }
 @media only screen and (min-width: 768px) {
     .cd-testimonials p {
-        font-size: 22px;
-        font-size: 1.375rem;
+        font-size: 18px;
+        font-size: 1rem;
     }
 }
 @media only screen and (min-width: 1170px) {
     .cd-testimonials p {
-        font-size: 26px;
-        font-size: 1.3rem;
+        font-size: 22px;
+        font-size: 1.1rem;
         line-height: 1.6;
     }
 }

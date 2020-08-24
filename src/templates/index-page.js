@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import FeaturedBlogRoll from '../components/FeaturedBlogRoll'
 import Typed from 'react-typed'
 // import Footer from '../components/Footer'
 // import Slider from 'react-slick'
@@ -198,44 +199,88 @@ const IndexPage = class extends React.Component {
                     {this.getTypeWriter()}
                   </div>
 
-                  {/* <div style={{ color: '#949495', textAlign: 'justify', lineHeight: 1.5, textJustify: 'inter-word', fontWeight: 100, fontSize: '20px', maxWidth: '90%', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>
-                    With several product alternatives out there in the market, it's really difficult to buy the right one that best suits your needs. Click the Chat button below and get help from&nbsp;
-                    <a href="https://vuejs.org/" rel="noopener" style={{ color: '#d95525' }}>our experts</a>&nbsp;
-                    in choosing the best.
-                  </div> */}
-
-                  {/* <p style={{ marginTop: '8px', fontSize: '17px', color: '#b0b0b0', textAlign: 'justify' }}>
-                    With several product alternatives out there in the market, it's really difficult to buy the right one that best suits your needs. Click the Chat button below and get help from&nbsp;
-                    <Link to="/" style={{ color: '#e85a27' }}>our experts</Link>&nbsp;
-                    in choosing the best.
-                  </p> */}
-
                   {this.getTestimonials()}
 
-                  {/* <Footer /> */}
+                  <FeaturedBlogRoll />
+                  <div style={{ marginTop: '50px' }}></div>
                 </div>
               </div>
-              <div className="column is-6 ">
-                {/* Right Side */}
+              <div className="column is-6">
                 <BlogRoll />
                 <div style={{ marginTop: '50px' }}></div>
-                {/* <VlogRoll /> */}
               </div>
-
-              {/* <div>
-              <div className="column is-12">
-                <h3 className="has-text-weight-semibold is-size-2">
-                  Latest stories
-                    </h3>
-                <BlogRoll />
-                <div className="column is-12 has-text-centered">
-                  <Link className="btn" to="/blog">
-                    Read more
-                  </Link>
-                </div>
-              </div>
-            </div> */}
             </div>
+
+            {/* <div class="outleftcontainerunder">
+              Hello
+            </div>
+
+            <div class="maincontainer">
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+              Hello<br />
+            </div> */}
           </div>
         </section>
       </Layout >

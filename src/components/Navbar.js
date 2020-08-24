@@ -34,7 +34,7 @@ const Navbar = class extends React.Component {
   //   s.id = "ws-snippet";
   //   s.type = 'text/javascript';
   //   s.async = true;
-  //   s.innerHTML = "(function () {\r\n      var options = {\r\n        whatsapp: \"+917405323541\", \/\/ WhatsApp number\r\n        call_to_action: \"Message us\", \/\/ Call to action\r\n        position: \"right\", \/\/ Position may be \'right\' or \'left\'\r\n      };\r\n      var proto = document.location.protocol, host = \"getbutton.io\", url = proto + \"\/\/static.\" + host;\r\n      var s = document.createElement(\'script\'); s.type = \'text\/javascript\'; s.async = true; s.src = url + \'\/widget-send-button\/js\/init.js\';\r\n      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };\r\n      var x = document.getElementsByTagName(\'script\')[0]; x.parentNode.insertBefore(s, x);\r\n    })();";
+  //   s.innerHTML = "(function () {\r\n      var options = {\r\n        whatsapp: \"+919227501199\", \/\/ WhatsApp number\r\n        call_to_action: \"Message us\", \/\/ Call to action\r\n        position: \"right\", \/\/ Position may be \'right\' or \'left\'\r\n      };\r\n      var proto = document.location.protocol, host = \"getbutton.io\", url = proto + \"\/\/static.\" + host;\r\n      var s = document.createElement(\'script\'); s.type = \'text\/javascript\'; s.async = true; s.src = url + \'\/widget-send-button\/js\/init.js\';\r\n      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };\r\n      var x = document.getElementsByTagName(\'script\')[0]; x.parentNode.insertBefore(s, x);\r\n    })();";
   //   if (this.instance)
   //     this.instance.appendChild(s);
   // }

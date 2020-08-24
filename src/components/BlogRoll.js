@@ -5,7 +5,7 @@ import PreviewCompatibleImage from './PreviewCompatibleImage'
 // import Moment from 'react-moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
-import { faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faYoutube, faAmazon, faEbay } from '@fortawesome/free-brands-svg-icons'
 
 class BlogRoll extends React.Component {
   render() {
@@ -14,19 +14,25 @@ class BlogRoll extends React.Component {
 
     return (
       // <div className="columns is-multiline">
-      <div>
+      <div className="has-text-centered">
         <div className="is-12" style={{ textAlign: 'center', fontSize: '24px', color: '#ff4400' }}>
           <b>Recently Launched</b>
         </div>
         <div className="columns is-multiline" style={{ paddingTop: '0.75rem' }}>
           {posts &&
             posts.map(({ node: post }) => (
-              <div className="is-parent column is-6" key={post.id}>
+              !post.frontmatter.featuredpost && <div className="is-parent column is-6" key={post.id}>
                 <article
                   className={`blog-list-item tile is-child box is-featured`}
                 >
                   <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'space-between', color: '#949495' }}>
                     <div style={{ display: 'flex', alignItems: 'center', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '11px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</div>
+                    {post.frontmatter.facebookurl && <a href={post.frontmatter.facebookurl} target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faFacebook} />
+                    </a>}
+                    {post.frontmatter.youtubeurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.youtubeurl} target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faYoutube} />
+                    </a>}
                     {post.frontmatter.externalurl &&
                       <a href={post.frontmatter.externalurl} target="_blank" rel="noreferrer">
                         <FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
@@ -61,11 +67,6 @@ class BlogRoll extends React.Component {
                     </Link>}
                     {post.frontmatter.isvideo &&
                       <div>
-                        {/* <iframe style={{ borderRadius: '5px' }} width="100%"
-                          frameBorder="none"
-                          src={"https://www.youtube.com/embed/" + post.frontmatter.youtubevideoid + "?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"}
-                          allowfullscreen>
-                        </iframe> */}
                         <iframe title={post.frontmatter.youtubevideoid} style={{ borderRadius: '5px' }} width="100%"
                           src={"https://www.youtube.com/embed/" + post.frontmatter.youtubevideoid}
                           frameBorder="0"
@@ -84,11 +85,17 @@ class BlogRoll extends React.Component {
                       <p style={{ fontSize: '12px' }}>3,771</p>
                     </div>
                     <div>
-                      {post.frontmatter.facebookurl && <a href={post.frontmatter.facebookurl} target="_blank" rel="noreferrer">
+                      {/* {post.frontmatter.facebookurl && <a href={post.frontmatter.facebookurl} target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faFacebook} />
                       </a>}
                       {post.frontmatter.youtubeurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.youtubeurl} target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faYoutube} />
+                      </a>} */}
+                      {post.frontmatter.ebayurl && <a href={post.frontmatter.ebayurl} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon size="lg" icon={faEbay} />
+                      </a>}
+                      {post.frontmatter.amazonurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.amazonurl} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon size="lg" icon={faAmazon} />
                       </a>}
                     </div>
                   </div>
@@ -97,6 +104,7 @@ class BlogRoll extends React.Component {
             ))
           }
         </div>
+        <p style={{ marginTop: '8px', fontSize: '13px', color: '#949495' }}>An initiative by The Vyber</p>
       </div>
     )
 
