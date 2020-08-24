@@ -91,11 +91,11 @@ class BlogRoll extends React.Component {
                       {post.frontmatter.youtubeurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.youtubeurl} target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faYoutube} />
                       </a>} */}
-                      {post.frontmatter.ebayurl && <a href={post.frontmatter.ebayurl} target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon size="lg" icon={faEbay} />
+                      {post.frontmatter.ebayurl && <a className="signature-link" href={post.frontmatter.ebayurl} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon size="2x" icon={faEbay} />
                       </a>}
-                      {post.frontmatter.amazonurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.amazonurl} target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon size="lg" icon={faAmazon} />
+                      {post.frontmatter.amazonurl && <a className="signature-link" style={{ paddingLeft: '10px' }} href={post.frontmatter.amazonurl} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon size="2x" icon={faAmazon} />
                       </a>}
                     </div>
                   </div>
