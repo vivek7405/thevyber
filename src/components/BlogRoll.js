@@ -27,16 +27,17 @@ class BlogRoll extends React.Component {
                 >
                   <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'space-between', color: '#949495' }}>
                     <div style={{ display: 'flex', alignItems: 'center', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '11px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</div>
-                    {post.frontmatter.facebookurl && <a href={post.frontmatter.facebookurl} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon icon={faFacebook} />
-                    </a>}
-                    {post.frontmatter.youtubeurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.youtubeurl} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon icon={faYoutube} />
-                    </a>}
-                    {post.frontmatter.externalurl &&
-                      <a href={post.frontmatter.externalurl} target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
+                    <div>
+                      {post.frontmatter.facebookurl && <a href={post.frontmatter.facebookurl} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon icon={faFacebook} />
                       </a>}
+                      {post.frontmatter.youtubeurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.youtubeurl} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon icon={faYoutube} />
+                      </a>}
+                      {post.frontmatter.externalurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.externalurl} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon icon={faExternalLinkAlt} />
+                      </a>}
+                    </div>
                   </div>
                   {/* <div className="columns" style={{ marginTop: '3px' }}>
                     {post.frontmatter.featuredimage &&
@@ -91,11 +92,11 @@ class BlogRoll extends React.Component {
                       {post.frontmatter.youtubeurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.youtubeurl} target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faYoutube} />
                       </a>} */}
-                      {post.frontmatter.ebayurl && <a className="signature-link" href={post.frontmatter.ebayurl} target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon size="2x" icon={faEbay} />
+                      {post.frontmatter.ebayurl && <a href={post.frontmatter.ebayurl} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon size="lg" icon={faEbay} />
                       </a>}
-                      {post.frontmatter.amazonurl && <a className="signature-link" style={{ paddingLeft: '10px' }} href={post.frontmatter.amazonurl} target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon size="2x" icon={faAmazon} />
+                      {post.frontmatter.amazonurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.amazonurl} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon size="lg" icon={faAmazon} />
                       </a>}
                     </div>
                   </div>
@@ -104,7 +105,7 @@ class BlogRoll extends React.Component {
             ))
           }
         </div>
-        <p style={{ marginTop: '8px', fontSize: '13px', color: '#949495' }}>An initiative by The Vyber</p>
+        {/* <p style={{ marginTop: '8px', fontSize: '13px', color: '#949495' }}>An initiative by The Vyber</p> */}
       </div>
     )
 
@@ -198,7 +199,9 @@ export default () => (
                 description
                 externalurl
                 facebookurl
-                youtubeurl                
+                youtubeurl
+                amazonurl
+                ebayurl
                 tags
                 templateKey
                 date(formatString: "MMMM DD, YYYY")

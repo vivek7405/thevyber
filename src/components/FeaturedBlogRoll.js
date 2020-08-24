@@ -36,7 +36,7 @@ class FeaturedBlogRoll extends React.Component {
                                             </a>}
                                             {post.frontmatter.externalurl &&
                                                 <a style={{ paddingLeft: '10px' }} href={post.frontmatter.externalurl} target="_blank" rel="noreferrer">
-                                                    <FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
+                                                    <FontAwesomeIcon icon={faExternalLinkAlt} />
                                                 </a>}
                                         </div>
                                     </div>
@@ -94,10 +94,10 @@ class FeaturedBlogRoll extends React.Component {
                                             {post.frontmatter.youtubeurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.youtubeurl} target="_blank" rel="noreferrer">
                                                 <FontAwesomeIcon icon={faYoutube} />
                                             </a>} */}
-                                            {post.frontmatter.ebayurl && <a className="signature-link" href={post.frontmatter.ebayurl} target="_blank" rel="noreferrer">
+                                            {post.frontmatter.ebayurl && <a href={post.frontmatter.ebayurl} target="_blank" rel="noreferrer">
                                                 <FontAwesomeIcon size="lg" icon={faEbay} />
                                             </a>}
-                                            {post.frontmatter.amazonurl && <a className="signature-link" style={{ paddingLeft: '10px' }} href={post.frontmatter.amazonurl} target="_blank" rel="noreferrer">
+                                            {post.frontmatter.amazonurl && <a style={{ paddingLeft: '10px' }} href={post.frontmatter.amazonurl} target="_blank" rel="noreferrer">
                                                 <FontAwesomeIcon size="lg" icon={faAmazon} />
                                             </a>}
                                         </div>
@@ -107,7 +107,7 @@ class FeaturedBlogRoll extends React.Component {
                         ))
                     }
                 </div>
-                <p style={{ marginTop: '8px', fontSize: '13px', color: '#949495' }}>An initiative by The Vyber</p>
+                {/* <p style={{ marginTop: '8px', fontSize: '13px', color: '#949495' }}>An initiative by The Vyber</p> */}
             </div>
         )
 
@@ -202,6 +202,8 @@ export default () => (
                 externalurl
                 facebookurl
                 youtubeurl
+                amazonurl
+                ebayurl
                 tags
                 templateKey
                 date(formatString: "MMMM DD, YYYY")

@@ -30,6 +30,7 @@ collections:
       - {label: "Facebook URL", name: "facebookurl", widget: "string", default: ""}
       - {label: "Youtube URL", name: "youtubeurl", widget: "string", default: ""}
       - {label: "Amazon URL", name: "amazonurl", widget: "string", default: ""}
+      - {label: "Ebay URL", name: "ebayurl", widget: "string", default: ""}
       - {label: "Flipkart URL", name: "flipkarturl", widget: "string", default: ""}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
