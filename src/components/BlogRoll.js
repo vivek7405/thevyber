@@ -23,7 +23,7 @@ class BlogRoll extends React.Component {
             posts.map(({ node: post }) => (
               !post.frontmatter.featuredpost && <div className="is-parent column is-6" key={post.id}>
                 <article
-                  className={`blog-list-item tile is-child box is-featured`}
+                  className={`blog-list-item tile is-child box post-background`}
                 >
                   <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'space-between', color: '#949495' }}>
                     <div style={{ display: 'flex', alignItems: 'center', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '11px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</div>
@@ -57,15 +57,16 @@ class BlogRoll extends React.Component {
                     </div>
                   </div> */}
                   <div style={{ marginTop: '8px' }}>
-                    {!post.frontmatter.isvideo && <Link to={post.fields.slug}>
-                      <PreviewCompatibleImage
-                        imageStyle={{ borderRadius: '5px' }}
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      />
-                    </Link>}
+                    {!post.frontmatter.isvideo && post.frontmatter.featuredimage &&
+                      <Link to={post.fields.slug}>
+                        <PreviewCompatibleImage
+                          imageStyle={{ borderRadius: '5px' }}
+                          imageInfo={{
+                            image: post.frontmatter.featuredimage,
+                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                          }}
+                        />
+                      </Link>}
                     {post.frontmatter.isvideo &&
                       <div>
                         <iframe title={post.frontmatter.youtubevideoid} style={{ borderRadius: '5px' }} width="100%"
@@ -85,7 +86,7 @@ class BlogRoll extends React.Component {
                       <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px', fontSize: '10px' }} />
                       <p style={{ fontSize: '12px' }}>3,771</p>
                     </div>
-                    <div>
+                    <div style={{ fontSize: '18px' }}>
                       {/* {post.frontmatter.facebookurl && <a href={post.frontmatter.facebookurl} target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faFacebook} />
                       </a>}
