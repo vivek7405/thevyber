@@ -5,14 +5,15 @@ date: 2017-01-04T15:04:10.000Z
 description: Sony's ZV 1 is their latest addition to their compact cameras
   collection, but this time with a Vlogging Camera!
 featuredpost: true
+featuredimage: /img/sony_zv-1.jpg
 isvideo: false
 youtubevideoid: J0PtGdp-Cgs
-featuredimage: /img/sony_zv-1.jpg
 externalurl: https://www.sony.co.in/electronics/cyber-shot-compact-cameras/zv-1
 facebookurl: https://www.facebook.com/SonyIndia/videos/the-all-new-sony-zv-1-vlog-camera/2675824929403354/
 youtubeurl: https://www.youtube.com/watch?v=tkweChULkrI
-amazonurl: https://www.facebook.com/SonyIndia/videos/the-all-new-sony-zv-1-vlog-camera/2675824929403354/
-ebayurl: https://www.facebook.com/SonyIndia/videos/the-all-new-sony-zv-1-vlog-camera/2675824929403354/
+amazonurl: https://www.amazon.in/b?ie=UTF8&node=21863413031
+ebayurl: https://www.ebay.com/itm/Sony-ZV-1-Camera-for-Content-Creators-and-Vloggers/283909436028
+flipkarturl: " "
 tags:
   - Camera
 ---
