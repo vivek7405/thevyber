@@ -22,14 +22,14 @@ export const BlogPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            <h1 className="title is-size-2 has-text-weight-bold is-bold-light has-text-white-ter">
               {title}
             </h1>
             <p>{description}</p>
-            <PostContent content={content} />
+            <PostContent className="content-format" content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
+                <h4 className="has-text-white-ter">Tags</h4>
                 <ul className="taglist">
                   {tags.map((tag) => (
                     <li key={tag + `tag`}>
@@ -58,7 +58,7 @@ const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>      
+    <Layout>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
