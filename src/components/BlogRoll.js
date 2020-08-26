@@ -12,7 +12,7 @@ import { faFacebook, faYoutube, faAmazon, faEbay } from '@fortawesome/free-brand
 class BlogRoll extends React.Component {
   render() {
     const { data } = this.props
-    const { isFeatured } = this.props
+    const isFeatured = this.props.isFeatured
     const { edges: posts } = data.allMarkdownRemark
 
     return (
@@ -23,8 +23,8 @@ class BlogRoll extends React.Component {
         </div> */}
         <div className="columns is-multiline" style={{ paddingTop: '0.75rem' }}>
           {posts &&
-            posts.filter(({ node: post }) => post.frontmatter.featuredpost === isFeatured).map(({ node: post }) => (
-              <div className={`is-parent column ${isFeatured ? 'is-12' : 'is-6'}`} key={post.id}>
+            posts.filter(({ node: post }) => isFeatured !== undefined ? post.frontmatter.featuredpost === isFeatured : post).map(({ node: post }) => (
+              <div className={`is-parent column ${isFeatured !== undefined ? isFeatured === true ? 'is-12' : 'is-6' : 'is-3'}`} key={post.id}>
                 <article
                   className={`blog-list-item tile is-child box post-background`}
                 >
