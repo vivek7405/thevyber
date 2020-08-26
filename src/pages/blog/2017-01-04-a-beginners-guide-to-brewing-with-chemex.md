@@ -14,6 +14,7 @@ youtubeurl: https://www.youtube.com/watch?v=tkweChULkrI
 amazonurl: https://www.amazon.in/b?ie=UTF8&node=21863413031
 ebayurl: https://www.ebay.com/itm/Sony-ZV-1-Camera-for-Content-Creators-and-Vloggers/283909436028
 flipkarturl: " "
+rating: 87
 tags:
   - Camera
 ---

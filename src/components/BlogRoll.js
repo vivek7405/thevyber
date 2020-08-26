@@ -6,7 +6,7 @@ import { kebabCase } from 'lodash'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 // import Moment from 'react-moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faExternalLinkAlt, faHeart, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faExternalLinkAlt, faStar } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faYoutube, faAmazon, faEbay } from '@fortawesome/free-brands-svg-icons'
 
 class BlogRoll extends React.Component {
@@ -64,7 +64,7 @@ class BlogRoll extends React.Component {
                       <Link style={{ textDecoration: 'none' }} to={post.fields.slug}><p style={{ color: '#fff', textAlign: 'justify', fontSize: '13px', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p></Link>
                     </div>
                   </div> */}
-                  <div className={isFeatured ? 'columns flex-center' : ''}>
+                  <div className={isFeatured ? 'columns flex-center' : ''} style={{ marginBottom: 0 }}>
                     <div style={{ marginTop: '8px' }} className={isFeatured ? 'column is-4' : ''}>
                       {!post.frontmatter.isvideo && post.frontmatter.featuredimage &&
                         <Link to={post.fields.slug}>
@@ -77,28 +77,26 @@ class BlogRoll extends React.Component {
                           />
                         </Link>}
                       {post.frontmatter.isvideo &&
-                        <div>
-                          <iframe title={post.frontmatter.youtubevideoid} style={{ borderRadius: '5px' }} width="100%"
-                            src={"https://www.youtube.com/embed/" + post.frontmatter.youtubevideoid}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen>
-                          </iframe>
-                        </div>}
+                        <iframe title={post.frontmatter.youtubevideoid} style={{ borderRadius: '5px' }} width="100%"
+                          src={"https://www.youtube.com/embed/" + post.frontmatter.youtubevideoid}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen>
+                        </iframe>}
                     </div>
-                    <div className={isFeatured ? 'column is-8' : ''}>
+                    <div style={{ marginTop: '8px' }} className={isFeatured ? 'column is-8' : ''}>
                       <Link style={{ textDecoration: 'none' }} to={post.fields.slug}>
-                        <div style={{ marginTop: '10px' }}>
+                        <div>
                           <p style={{ color: '#fff', textAlign: 'justify', fontSize: '13px', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p>
                         </div>
                         <p style={{ marginTop: '8px', textAlign: 'justify', fontSize: '13px', color: '#949495' }}>{post.frontmatter.description}</p>
                       </Link>
                     </div>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '8px', color: '#949495' }}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <FontAwesomeIcon icon={faStar} style={{ marginRight: '7px', fontSize: '14px' }} />
-                      <p style={{ fontSize: '15px' }}>87</p>
+                      <p style={{ fontSize: '15px' }}>{post.frontmatter.rating}</p>
                     </div>
                     <div style={{ fontSize: '18px' }}>
                       {/* {post.frontmatter.facebookurl && <a href={post.frontmatter.facebookurl} target="_blank" rel="noreferrer">
@@ -217,6 +215,7 @@ export default ({ isFeatured }) => (
                 youtubeurl
                 amazonurl
                 ebayurl
+                rating
                 tags
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
