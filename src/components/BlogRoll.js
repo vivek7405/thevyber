@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
+import { kebabCase } from 'lodash'
+
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 // import Moment from 'react-moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faExternalLinkAlt, faHeart, faStar } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faYoutube, faAmazon, faEbay } from '@fortawesome/free-brands-svg-icons'
 
 class BlogRoll extends React.Component {
@@ -27,7 +29,12 @@ class BlogRoll extends React.Component {
                   className={`blog-list-item tile is-child box post-background`}
                 >
                   <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'space-between', color: '#949495' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '11px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.tags}</div>
+                    <div style={{ display: 'flex', alignItems: 'center', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '11px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>
+                      {post.frontmatter.tags &&
+                        <Link style={{ textDecoration: 'none' }} to={`/tags/${kebabCase(post.frontmatter.tags[0])}/`}>
+                          <p style={{ color: '#949495' }}>{post.frontmatter.tags[0]}</p>
+                        </Link>}
+                    </div>
                     <div>
                       {post.frontmatter.facebookurl && <a href={post.frontmatter.facebookurl} target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faFacebook} />
@@ -80,16 +87,18 @@ class BlogRoll extends React.Component {
                         </div>}
                     </div>
                     <div className={isFeatured ? 'column is-8' : ''}>
-                      <div style={{ marginTop: '10px' }}>
-                        <Link style={{ textDecoration: 'none' }} to={post.fields.slug}><p style={{ color: '#fff', textAlign: 'justify', fontSize: '13px', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p></Link>
-                      </div>
-                      <p style={{ marginTop: '8px', textAlign: 'justify', fontSize: '13px', color: '#949495' }}>{post.frontmatter.description}</p>
+                      <Link style={{ textDecoration: 'none' }} to={post.fields.slug}>
+                        <div style={{ marginTop: '10px' }}>
+                          <p style={{ color: '#fff', textAlign: 'justify', fontSize: '13px', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>{post.frontmatter.title}</p>
+                        </div>
+                        <p style={{ marginTop: '8px', textAlign: 'justify', fontSize: '13px', color: '#949495' }}>{post.frontmatter.description}</p>
+                      </Link>
                     </div>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px', color: '#949495' }}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px', fontSize: '10px' }} />
-                      <p style={{ fontSize: '12px' }}>3,771</p>
+                      <FontAwesomeIcon icon={faStar} style={{ marginRight: '7px', fontSize: '14px' }} />
+                      <p style={{ fontSize: '15px' }}>87</p>
                     </div>
                     <div style={{ fontSize: '18px' }}>
                       {/* {post.frontmatter.facebookurl && <a href={post.frontmatter.facebookurl} target="_blank" rel="noreferrer">
@@ -111,7 +120,7 @@ class BlogRoll extends React.Component {
             ))
           }
         </div>
-        {!isFeatured && <p style={{ marginTop: '8px', fontSize: '13px', color: '#949495' }}>An initiative by The Vyber</p>}
+        {!isFeatured && <p style={{ marginTop: '8px', fontSize: '13px', color: '#949495' }}>An initiative by <b>The Vyber</b></p>}
       </div>
     )
 

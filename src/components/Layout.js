@@ -9,7 +9,7 @@ import { withPrefix } from 'gatsby'
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
-    <div className="has-background-black has-text-white-ter">
+    <div className="has-background-black">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>

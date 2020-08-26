@@ -164,7 +164,7 @@ IndexPageTemplate.propTypes = {
 const IndexPage = class extends React.Component {
   getTypeWriter() {
     return (
-      <div className="has-text-weight-bold">
+      <div className="has-text-weight-bold has-text-white-ter">
         <label htmlFor="questions">Shall I buy </label>
         <span id="questions">
           <Typed
@@ -203,8 +203,7 @@ const IndexPage = class extends React.Component {
                   <div style={{ textAlign: 'center', fontSize: '24px', color: '#ff4400' }}>
                     <b>Featured</b>
                   </div>
-                  <BlogRoll isFeatured={true} />
-                  {/* <FeaturedBlogRoll /> */}
+                  <BlogRoll isFeatured={true} />                  
                   <div style={{ marginTop: '50px' }}></div>
                 </div>
               </div>
