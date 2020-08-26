@@ -5,7 +5,6 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
-import FeaturedBlogRoll from '../components/FeaturedBlogRoll'
 import Typed from 'react-typed'
 // import Footer from '../components/Footer'
 // import Slider from 'react-slick'
@@ -201,12 +200,19 @@ const IndexPage = class extends React.Component {
 
                   {this.getTestimonials()}
 
-                  <FeaturedBlogRoll />
+                  <div style={{ textAlign: 'center', fontSize: '24px', color: '#ff4400' }}>
+                    <b>Featured</b>
+                  </div>
+                  <BlogRoll isFeatured={true} />
+                  {/* <FeaturedBlogRoll /> */}
                   <div style={{ marginTop: '50px' }}></div>
                 </div>
               </div>
               <div className="column is-6">
-                <BlogRoll />
+                <div style={{ textAlign: 'center', fontSize: '24px', color: '#ff4400' }}>
+                  <b>Recently Launched</b>
+                </div>
+                <BlogRoll isFeatured={false} />
                 <div style={{ marginTop: '50px' }}></div>
               </div>
             </div>
