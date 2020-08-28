@@ -178,32 +178,38 @@ const IndexPage = class extends React.Component {
     )
   }
 
-  getTestimonials() {
-    return <Testimonials testimonials={this.props.data.markdownRemark.frontmatter.testimonials} />;
-  }
-
   render() {
     return (
       <Layout>
         <section className="section">
           <div className="container">
             <div className="columns">
-              <div className="column is-6">
+              <div className="column is-6 has-text-white-ter">
                 <div style={{ position: 'sticky', top: 100 }}>
-                  <div style={{ fontWeight: 200, color: '#888', fontSize: '2rem' }}>
+                  <h1 className="index-page-title">
+                    Let's make your next big purchase
+                  </h1>
+
+                  <h2 className="index-page-subtitle">
+                    Our experts analyze and pick the product that best suits your needs
+                  </h2>
+
+                  <br />
+
+                  <h3 style={{ fontWeight: 200, fontSize: '1.3rem' }}>
                     Chat with us now!
-                  </div>
+                  </h3>
 
                   <div style={{ minHeight: '100px', fontSize: '1.5em', fontWeight: 200, fontFamily: "'Raleway', sans-serif" }}>
                     {this.getTypeWriter()}
                   </div>
 
-                  {this.getTestimonials()}
+                  <Testimonials testimonials={this.props.data.markdownRemark.frontmatter.testimonials} />
 
                   <div style={{ textAlign: 'center', fontSize: '24px', color: '#ff4400' }}>
                     <b>Featured</b>
                   </div>
-                  <BlogRoll isFeatured={true} />                  
+                  <BlogRoll isFeatured={true} />
                   <div style={{ marginTop: '50px' }}></div>
                 </div>
               </div>
@@ -215,77 +221,6 @@ const IndexPage = class extends React.Component {
                 <div style={{ marginTop: '50px' }}></div>
               </div>
             </div>
-
-            {/* <div class="outleftcontainerunder">
-              Hello
-            </div>
-
-            <div class="maincontainer">
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-              Hello<br />
-            </div> */}
           </div>
         </section>
       </Layout >

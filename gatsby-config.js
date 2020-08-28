@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Vyber',
+    title: 'Vyber - Ask us before you buy!',
     description:
-      'Ask us before you buy!',
+      "Confused with your next big purchase? Don't have the time to analyze the product that best suits your needs? Let us do the job for you. Chat with us now!",
   },
   plugins: [
     'gatsby-plugin-react-helmet',

@@ -15,9 +15,9 @@ const Navbar = class extends React.Component {
   }
 
   componentDidMount() {
-    this.addZendeskButton();
+    // this.addZendeskButton();
     // this.addWhatsAppButton();
-  }
+  }  
 
   addZendeskButton() {
     const s = document.createElement('script');

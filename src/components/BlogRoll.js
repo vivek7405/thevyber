@@ -17,16 +17,17 @@ class BlogRoll extends React.Component {
 
     return (
       // <div className="columns is-multiline">
-      <div className="has-text-centered">
+      <div className="has-text-centered" style={{ marginTop: '0.75rem' }}>
         {/* <div className="is-12" style={{ textAlign: 'center', fontSize: '24px', color: '#ff4400' }}>
           <b>Recently Launched</b>
         </div> */}
-        <div className="columns is-multiline" style={{ paddingTop: '0.75rem' }}>
+        <div className="columns is-multiline">
           {posts &&
             posts.filter(({ node: post }) => isFeatured !== undefined ? post.frontmatter.featuredpost === isFeatured : post).map(({ node: post }) => (
               <div className={`is-parent column ${isFeatured !== undefined ? isFeatured === true ? 'is-12' : 'is-6' : 'is-3'}`} key={post.id}>
                 <article
-                  className={`blog-list-item tile is-child box post-background`}
+                  className={`blog-list-item tile is-child post-background`}
+                  style={{ padding: '1rem' }}
                 >
                   <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'space-between', color: '#949495' }}>
                     <div style={{ display: 'flex', alignItems: 'center', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '11px', fontWeight: '700', fontFamily: 'Gothic A1,-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' }}>
